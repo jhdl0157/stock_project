@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 public class StockService {
     private final StockRepository stockRepository;
     @Transactional
-    public void decrease(Long id,Long quantity) {
+    public synchronized void decrease(Long id,Long quantity) {
         // 재고를 가져온다.
         // 재고 감소
         // 저장

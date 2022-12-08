@@ -49,6 +49,7 @@ class StockServiceTest {
         ExecutorService executorService= Executors.newFixedThreadPool(32);
         CountDownLatch latch=new CountDownLatch(threadCount);
         for(int i=0;i<threadCount;i++){
+            //경쟁 상태가 들어가서 의도한 바와 다른 결과가 나온다.
             executorService.submit(()->{
                 try {
                     stockService.decrease(1L, 1L);
